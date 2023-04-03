@@ -1,0 +1,27 @@
+emp:
+  info:
+    company:
+      location: Bandra
+      name: MI
+      size: 35
+    id: 10
+    id-details:
+      adharNo: 7645345
+      panNo: 232345
+      voterId: 2323454
+    mobile-numbers:
+    - 9997778886
+    - 6667778889
+    - 5556667776
+    - 5556667776
+    name: sachin
+    project-names:
+    - IND
+    - World1X
+    - Mumbai
+    - Asia1X
+    skill-sets:
+    - java
+    - jee
+    - ORM
+    - SpringBoot
