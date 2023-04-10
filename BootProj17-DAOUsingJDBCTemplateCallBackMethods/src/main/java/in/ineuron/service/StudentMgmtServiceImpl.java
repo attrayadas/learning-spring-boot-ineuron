@@ -33,7 +33,29 @@ public class StudentMgmtServiceImpl implements IStudentMgmtService {
 	@Override
 	public List<StudentDTO> fetchStudentByName(String name1, String name2) {
 		List<StudentBO> studentBO = dao.getStudentByName(name1, name2);
-		ArrayList<StudentDTO> studentDTO = new ArrayList<StudentDTO>();
+		List<StudentDTO> studentDTO = new ArrayList<StudentDTO>();
+		studentBO.forEach(bo -> {
+			StudentDTO dto = new StudentDTO();
+			BeanUtils.copyProperties(bo, dto);
+			if (bo.getAvg() >= 40) {
+				dto.setGrade("A");
+			} else if (bo.getAvg() >= 35) {
+				dto.setGrade("B");
+			} else if (bo.getAvg() >= 25) {
+				dto.setGrade("C");
+			} else {
+				dto.setGrade("D");
+			}
+			dto.setSrNo(studentDTO.size() + 1);
+			studentDTO.add(dto);
+		});
+		return studentDTO;
+	}
+
+	@Override
+	public List<StudentDTO> fetchStudentByCities(String city1, String city2, String city3) {
+		List<StudentBO> studentBO = dao.fetchStudentByCities(city1, city2, city3);
+		List<StudentDTO> studentDTO = new ArrayList<StudentDTO>();
 		studentBO.forEach(bo -> {
 			StudentDTO dto = new StudentDTO();
 			BeanUtils.copyProperties(bo, dto);

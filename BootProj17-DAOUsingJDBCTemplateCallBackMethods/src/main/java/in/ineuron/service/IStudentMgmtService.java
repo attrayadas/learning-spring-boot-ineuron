@@ -9,4 +9,6 @@ public interface IStudentMgmtService {
 
 	public List<StudentDTO> fetchStudentByName(String name1, String name2);
 
+	public List<StudentDTO> fetchStudentByCities(String city1, String city2, String city3);
+
 }

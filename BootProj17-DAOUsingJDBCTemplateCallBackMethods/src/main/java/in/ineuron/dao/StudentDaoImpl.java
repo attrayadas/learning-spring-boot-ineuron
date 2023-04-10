@@ -1,10 +1,17 @@
 package in.ineuron.dao;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.ResultSetExtractor;
+import org.springframework.jdbc.core.RowCallbackHandler;
+import org.springframework.jdbc.core.RowMapperResultSetExtractor;
 import org.springframework.stereotype.Repository;
 
 import in.ineuron.bo.StudentBO;
@@ -15,6 +22,8 @@ public class StudentDaoImpl implements IStudentDao {
 	private static final String GET_STUDENT_BY_NO = "SELECT SID, SNAME, AVG, SADDRESS FROM STUDENT WHERE SID=?";
 
 	private static final String GET_STUDENT_BY_NAME = "SELECT SID, SNAME, AVG, SADDRESS FROM STUDENT WHERE SNAME IN (?, ?)";
+
+	private static final String GET_STUDENT_BY_CITY = "SELECT SID, SNAME, AVG, SADDRESS FROM STUDENT WHERE SADDRESS IN (?, ?, ?) ";
 
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
@@ -37,6 +46,52 @@ public class StudentDaoImpl implements IStudentDao {
 			bo.setSaddress(rs.getString(4));
 			return bo;
 		}, name1, name2);
+	}
+
+	@Override
+	public List<StudentBO> fetchStudentByCities(String city1, String city2, String city3) {
+//		return jdbcTemplate.query(GET_STUDENT_BY_CITY, new ResultSetExtractor<List<StudentBO>>() {
+//
+//			@Override
+//			public List<StudentBO> extractData(ResultSet rs) throws SQLException, DataAccessException {
+//				List<StudentBO> bo = null;
+//				bo = new ArrayList<StudentBO>();
+//
+//				StudentBO stdBo = null;
+//				while (rs.next()) {
+//					stdBo = new StudentBO();
+//					stdBo.setSid(rs.getInt(1));
+//					stdBo.setSname(rs.getString(2));
+//					stdBo.setAvg(rs.getFloat(3));
+//					stdBo.setSaddress(rs.getString(4));
+//					bo.add(stdBo);
+//				}
+//
+//				return bo;
+//			}
+//
+//		}, city1, city2, city3);
+
+//		return jdbcTemplate.query(GET_STUDENT_BY_CITY,
+//				new RowMapperResultSetExtractor<StudentBO>(new BeanPropertyRowMapper<StudentBO>(StudentBO.class)),
+//				city1, city2, city3);
+
+		List<StudentBO> listBo = new ArrayList<StudentBO>();
+		jdbcTemplate.query(GET_STUDENT_BY_CITY, new RowCallbackHandler() {
+
+			@Override
+			public void processRow(ResultSet rs) throws SQLException {
+				System.out.println(
+						"StudentDaoImpl.fetchStudentByCities(...).new RowCallbackHandler() {...}.processRow()");
+				StudentBO bo = new StudentBO();
+				bo.setSid(rs.getInt(1));
+				bo.setSname(rs.getString(2));
+				bo.setAvg(rs.getFloat(3));
+				bo.setSaddress(rs.getString(4));
+				listBo.add(bo);
+			}
+		}, city1, city2, city3);
+		return listBo;
 	}
 
 }
