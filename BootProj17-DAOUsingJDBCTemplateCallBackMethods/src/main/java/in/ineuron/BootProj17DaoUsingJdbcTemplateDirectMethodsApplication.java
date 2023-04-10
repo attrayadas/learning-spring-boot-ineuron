@@ -20,7 +20,7 @@ public class BootProj17DaoUsingJdbcTemplateDirectMethodsApplication {
 		StudentDTO student = service.fetchStudentByNo(1);
 		System.out.println(student);
 		System.out.println("============");
-		List<StudentDTO> list = service.fetchStudentByName("sachin", "Dhoni");
+		List<StudentDTO> list = service.fetchStudentByName("sachin", "dhoni");
 		list.forEach(System.out::println);
 
 		((ConfigurableApplicationContext) applicationContext).close();
@@ -29,11 +29,9 @@ public class BootProj17DaoUsingJdbcTemplateDirectMethodsApplication {
 }
 
 //Output:
-//	StudentDaoImpl.StudentMapper.mapRow()
-//	StudentBO [sid=1, sname=Attraya, saddress=Bokaro, avg=87.0]
 //	StudentDTO [sno=0, grade=A, srNo=1, sname=Attraya, saddress=Bokaro, avg=87.0]
 //	============
 //	StudentDaoImpl.StudentRowMapper.mapRow()
 //	StudentDaoImpl.StudentRowMapper.mapRow()
 //	StudentDTO [sno=0, grade=A, srNo=1, sname=Dhoni, saddress=Ranchi, avg=45.0]
-//	StudentDTO [sno=0, grade=A, srNo=2, sname=Sachin, saddress=Mumbai, avg=54.0
+//	StudentDTO [sno=0, grade=A, srNo=2, sname=Sachin, saddress=Mumbai, avg=54.0]
