@@ -19,9 +19,9 @@ public class CoronaVaccine implements Serializable {
 	private String country;
 	private Double price;
 	private Integer requriedDoseCount;
-	
+
 	public CoronaVaccine() {
-		System.out.println("CoronaVaccine.CoronaVaccine()");
+		System.out.println("Hibernate internally uses ZERO-PARAM constructor during select query");
 	}
 
 	public CoronaVaccine(Long regNo, String name, String company, String country, Double price,
