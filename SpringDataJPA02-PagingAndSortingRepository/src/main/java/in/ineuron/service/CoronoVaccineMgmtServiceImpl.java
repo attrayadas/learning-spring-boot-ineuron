@@ -37,18 +37,18 @@ public class CoronoVaccineMgmtServiceImpl implements ICoronaVaccineMgmtService {
 	public void fetchDetailsByPagination(int pageSize) {
 
 		// total record count
-		long count = repo.count();// total = 7
+		long count = repo.count();// eg: total = 7
 
 		// deciding pagesCount
-		long pagesCount = count / pageSize;// pagesCount = 7/3 = 2
-		pagesCount = count % pageSize == 0 ? pagesCount : ++pagesCount; // pagesCount = 3
+		long pagesCount = count / pageSize;// eg: pagesCount = 7/3 = 2
+		pagesCount = count % pageSize == 0 ? pagesCount : ++pagesCount; // eg: pagesCount = 3
 
 		for (int i = 0; i < pagesCount; i++) {
 			// loop running from 0,1,2
 			Pageable pageable = PageRequest.of(i, pageSize);
 			Page<CoronaVaccine> page = repo.findAll(pageable);
 			page.getContent().forEach(System.out::println);
-			System.out.println("-------------------" + (i + 1) + " of :: " + page.getTotalPages());
+			System.out.println("--------------------------" + (i + 1) + " of :: " + page.getTotalPages());
 		}
 
 	}
