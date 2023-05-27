@@ -11,6 +11,7 @@ public class BootProj20Runner01Application {
 	}
 
 }
+//Input: Run Configurations > Arguments: START LOAD END
 
 //Output:
 //	PdfReportRunner.run()
