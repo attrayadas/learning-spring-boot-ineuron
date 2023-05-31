@@ -13,3 +13,5 @@ public class EurekaClientHiServiceApplication {
 	}
 
 }
+
+// Before running this application, start the Eureka-Registry-Eureka-Server
