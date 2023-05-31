@@ -12,6 +12,6 @@ public class HelloRestController {
 
 		String hiMsg = "Hello";
 
-		return hiMsg +" "+ name + ", how are you?";
+		return hiMsg + ", how are you?";
 	}
 }
