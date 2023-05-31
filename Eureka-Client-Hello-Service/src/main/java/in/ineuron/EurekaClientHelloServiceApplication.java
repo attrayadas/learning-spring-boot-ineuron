@@ -6,10 +6,12 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-public class EurekaClientHiServiceApplication {
+public class EurekaClientHelloServiceApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(EurekaClientHiServiceApplication.class, args);
+		SpringApplication.run(EurekaClientHelloServiceApplication.class, args);
 	}
 
 }
+
+// Before running this application, start the Eureka-Registry-Eureka-Server

@@ -7,7 +7,7 @@ public class ServletInitializer extends SpringBootServletInitializer {
 
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-		return application.sources(EurekaClientHiServiceApplication.class);
+		return application.sources(EurekaClientHelloServiceApplication.class);
 	}
 
 }
