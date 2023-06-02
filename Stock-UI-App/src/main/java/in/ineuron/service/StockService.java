@@ -6,7 +6,7 @@ import org.springframework.web.reactive.function.client.WebClient;
 @Service
 public class StockService {
 
-	private static final String REST_END_POINT = "http://localhost:1111/api/calc/calculate/{companyName}/{quantity}";
+	private static final String REST_END_POINT = "http://localhost:4444/api/calc/calc/calculate/{companyName}/{quantity}";
 
 	public String getTotalStockPrice(String companyName, Integer quantity) {
 		String response = null;

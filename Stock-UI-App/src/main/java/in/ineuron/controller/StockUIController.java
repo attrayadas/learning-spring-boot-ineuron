@@ -23,7 +23,9 @@ public class StockUIController {
 
 	@GetMapping("/getTotalCost")
 	public String getTotalCost(HttpServletRequest request, Model model) {
-
+		
+		System.out.println("StockUIController.getTotalCost()");
+		
 		String companyName = request.getParameter("companyName");
 		String quantity = request.getParameter("quantity");
 
