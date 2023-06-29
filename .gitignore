@@ -1,18 +1,30 @@
-.metadata
-target/
-pom.xml.tag
-pom.xml.releaseBackup
-pom.xml.versionsBackup
-pom.xml.next
-release.properties
-dependency-reduced-pom.xml
-buildNumber.properties
-.mvn/timing.properties
-# https://github.com/takari/maven-wrapper#usage-without-binary-jar
-.mvn/wrapper/maven-wrapper.jar
-
-# Eclipse m2e generated files
-# Eclipse Core
-.project
-# JDT-specific (Eclipse Java Development Tools)
+# Eclipse specific files
 .classpath
+.project
+.settings/
+
+# Compiled output
+bin/
+target/
+
+# Dependency management
+lib/
+libs/
+
+# IDE metadata
+.metadata/
+
+# SpringBoot-specific files
+*.log
+*.jar
+*.war
+*.ear
+*.class
+*.exe
+*.dll
+*.so
+*.dylib
+*.bak
+*.tmp
+*.tmp.*
+*.swp
