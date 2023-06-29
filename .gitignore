@@ -1,30 +1,28 @@
-# Eclipse specific files
+# STS specific files
+.apt_generated/
 .classpath
+.factorypath
 .project
 .settings/
+.springBeans
 
 # Compiled output
-bin/
 target/
 
 # Dependency management
-lib/
-libs/
+!**/src/ # Include source code
+!**/pom.xml # Include pom.xml files
+!**/.mvn/wrapper/maven-wrapper.jar # Include Maven wrapper files
 
 # IDE metadata
 .metadata/
+.local/
+.springBeans/
 
-# SpringBoot-specific files
+# Logs
 *.log
-*.jar
-*.war
-*.ear
-*.class
-*.exe
-*.dll
-*.so
-*.dylib
-*.bak
-*.tmp
-*.tmp.*
+
+# Miscellaneous
 *.swp
+*~
+.DS_Store
