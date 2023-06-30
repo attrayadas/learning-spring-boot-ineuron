@@ -55,7 +55,7 @@ public class WishMessageController {
 //	}
 
 	/**
-	 * String & (Map map): BEST APPROACH
+	 * String & (Map map): --------------------------------------------------->BEST APPROACH
 	 */
 //	@RequestMapping(value = "/wish", method = RequestMethod.GET)
 //	public String showWishMessage(Map<String, Object> model) {
